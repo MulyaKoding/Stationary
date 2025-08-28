@@ -35,7 +35,7 @@ export default function HomePage(): JSX.Element {
     setText(`No Barang ${String(nextNoBarang).padStart(2, "0")}, bipo`);
     
     // Text-to-speech message
-    const ttsMessage = `Nomor antrean ${formattedNumber}, dipersilahkan masuk`;
+    const ttsMessage = `Silakan Cek kembali Nomor barang Anda ${formattedNumber} , Terima kasih`;
     speakText(ttsMessage);
   };
 
