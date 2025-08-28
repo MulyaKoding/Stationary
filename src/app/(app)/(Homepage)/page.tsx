@@ -1,10 +1,21 @@
 "use client";
+import { useAccount } from "@/libs/hooks/home/useHome";
 import { JSX, useEffect, useState } from "react";
 import React from "react";
+import { Cookies } from "react-cookie"
 
 export default function HomePage(): JSX.Element {
   const [noBarang, setNoBarang] = useState<string>("01");
   const [text, setText] = useState<string>(`No Barang ${noBarang}, bipo`);
+  const cookies = new Cookies()
+  
+  const token = cookies.get("token")
+  const { data: accountInfo, isValidating: isAccountInfo } = useAccount(true, {
+    revalidateOnFocus: false,
+    revalidateIfStale: false
+  });
+
+  console.log(accountInfo, "ini datanya")
 
   const speakText = (message: string) => {
     // Check if browser supports speech synthesis
