@@ -25,9 +25,9 @@ function useAccount(
   const url = `/api/position`;
 
   const result = useSWR<AccountData, Error>(
-    isShouldFetch ? url : null, 
+    url, 
     fetcher, 
-    option
+    option,
   );
 
   return result;

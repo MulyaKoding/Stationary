@@ -10,12 +10,16 @@ export default function HomePage(): JSX.Element {
   const cookies = new Cookies()
   
   const token = cookies.get("token")
-  const { data: accountInfo, isValidating: isAccountInfo } = useAccount(true, {
-    revalidateOnFocus: false,
-    revalidateIfStale: false
+  const { data: accountInfo, isValidating: isAccountInfo, error } = useAccount(true, {
+    // ...
   });
 
-  console.log(accountInfo, "ini datanya")
+  useEffect(() => {
+    if (accountInfo) {
+      console.log("✅ DATA LOADED:", accountInfo); // Proper object logging
+      console.table(accountInfo); // Nice table format        
+    }
+  }, [accountInfo, isAccountInfo, error]);
 
   const speakText = (message: string) => {
     // Check if browser supports speech synthesis

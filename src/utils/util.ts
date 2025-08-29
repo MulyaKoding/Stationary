@@ -28,7 +28,6 @@ interface ErrorResponse {
  * @returns Promise yang resolve dengan data.data atau reject dengan error
  */
 export const fetcher = async <T = any>(url: string): Promise<T> => {
-  console.log("Fetcher called with URL:", url);
   
   try {
     const response = await axiosClient.get<ApiResponse<T>>(url);
