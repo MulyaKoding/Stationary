@@ -18,16 +18,6 @@ export default function HomePage(): JSX.Element {
     revalidateIfStale: false,
   });
 
-  // Debugging log
-  useEffect(() => {
-    if (accountInfo) {
-      console.log("✅ Data account:", accountInfo);
-    }
-    if (accountError) {
-      console.error("❌ Error:", accountError);
-    }
-  }, [accountInfo, accountError]);
-
   const speakText = (message: string) => {
     if ("speechSynthesis" in window) {
       speechSynthesis.cancel();
