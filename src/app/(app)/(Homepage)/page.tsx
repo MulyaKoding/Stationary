@@ -14,12 +14,12 @@ export default function HomePage(): JSX.Element {
     // ...
   });
 
-  useEffect(() => {
-    if (accountInfo) {
-      console.log("✅ DATA LOADED:", accountInfo); // Proper object logging
-      console.table(accountInfo); // Nice table format        
-    }
-  }, [accountInfo, isAccountInfo, error]);
+  // useEffect(() => {
+  //   if (accountInfo) {
+  //     // console.log("✅ DATA LOADED:", accountInfo); // Proper object logging
+  //     // console.table(accountInfo); // Nice table format        
+  //   }
+  // }, [accountInfo, isAccountInfo, error]);
 
   const speakText = (message: string) => {
     // Check if browser supports speech synthesis
