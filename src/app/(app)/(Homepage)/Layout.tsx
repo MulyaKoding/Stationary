@@ -1,10 +1,4 @@
-import type { Metadata } from 'next'
 import './globals.css'
-
-export const metadata: Metadata = {
-  title: 'Stationary',
-  description: 'Why we should provide stationary app?',
-}
 
 export default function HomepageLayout({
   children,
@@ -20,4 +14,4 @@ export default function HomepageLayout({
       </body>
     </html>
   )
-}   
+}
