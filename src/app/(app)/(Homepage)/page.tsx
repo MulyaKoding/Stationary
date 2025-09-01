@@ -1,18 +1,17 @@
 "use client";
 import { useAccount } from "@/libs/hooks/home/useHome";
-import { JSX } from "react";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Cookies } from "react-cookie";
 
-export default function HomePage(): JSX.Element {
+export default function HomePage() {
   const [noBarang, setNoBarang] = useState<string>("01");
   const cookies = new Cookies();
 
-  const token = cookies.get("token");
+  const _token = cookies.get("token");
   const {
-    data: accountInfo,
-    isValidating: isAccountInfo,
-    error: accountError,
+    data: _accountInfo,
+    isValidating: _isAccountInfo,
+    error: _accountError,
   } = useAccount(true, {
     revalidateOnFocus: false,
     revalidateIfStale: false,
@@ -74,8 +73,8 @@ export default function HomePage(): JSX.Element {
 
       <div style={{ marginTop: "20px", color: "#666" }}>
         <p>
-          Pesan TTS: "Silakan Cek kembali no data Stationary Anda{" "}
-          {String(parseInt(noBarang)).padStart(2, "0")}, Terima kasih"
+          Pesan TTS: &quot;Silakan Cek kembali no data Stationary Anda{" "}
+          {String(parseInt(noBarang)).padStart(2, "0")}, Terima kasih&quot;
         </p>
       </div>
     </div>

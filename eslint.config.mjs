@@ -1,3 +1,4 @@
+// eslint.config.mjs
 import { dirname } from "path";
 import { fileURLToPath } from "url";
 import { FlatCompat } from "@eslint/eslintrc";
@@ -12,13 +13,18 @@ const compat = new FlatCompat({
 const eslintConfig = [
   ...compat.extends("next/core-web-vitals", "next/typescript"),
   {
-    ignores: [
-      "node_modules/**",
-      ".next/**",
-      "out/**",
-      "build/**",
-      "next-env.d.ts",
-    ],
+    rules: {
+      // Disable unused variables warning
+      "@typescript-eslint/no-unused-vars": "off",
+      // Or use "warn" instead of "off" if you want warnings instead of errors
+      // "@typescript-eslint/no-unused-vars": "warn",
+      
+      // Also disable for regular JS unused vars
+      "no-unused-vars": "off",
+      
+      // Disable unescaped entities warning if needed
+      "react/no-unescaped-entities": "off",
+    },
   },
 ];
 

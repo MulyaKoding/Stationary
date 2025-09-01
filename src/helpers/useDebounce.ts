@@ -7,7 +7,7 @@
  * @param delay - The number of milliseconds to delay
  * @returns A new debounced function
  */
-export const debounce = <T extends (...args: any[]) => any>(
+export const debounce = <T extends (...args: unknown[]) => unknown>(
   func: T,
   delay: number
 ): ((...args: Parameters<T>) => void) => {

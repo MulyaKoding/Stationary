@@ -10,7 +10,7 @@ export function cn(...inputs: ClassValue[]): string {
 }
 
 // Interface untuk response data standar
-interface ApiResponse<T = any> {
+interface ApiResponse<T = unknown> {
   data?: T;
   message?: string;
   status?: string;
@@ -25,7 +25,7 @@ interface ErrorResponse {
 /**
  * Fetcher function untuk SWR yang mengembalikan data.data
  */
-export const fetcher = async <T = any>(url: string): Promise<T> => {
+export const fetcher = async <T = unknown>(url: string): Promise<T> => {
   try {
     const { data } = await axiosClient.get<ApiResponse<T>>(url);
     return data?.data ?? ({} as T);
@@ -43,7 +43,7 @@ export const fetcher = async <T = any>(url: string): Promise<T> => {
 /**
  * Fetcher function untuk SWR yang mengembalikan seluruh response data
  */
-export const fetcherMeta = async <T = any>(
+export const fetcherMeta = async <T = unknown>(
   url: string
 ): Promise<ApiResponse<T>> => {
   try {
