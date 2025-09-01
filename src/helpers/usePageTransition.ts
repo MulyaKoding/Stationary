@@ -1,6 +1,5 @@
-import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
 import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 
 // Interface for the hook's return value
 interface UsePageTransitionReturn {
@@ -15,7 +14,6 @@ interface UsePageTransitionReturn {
  * @returns Object containing the current transition state
  */
 const usePageTransition = (delay: number = 500): UsePageTransitionReturn => {
-  const router = useRouter();
   const pathname = usePathname(); // Use usePathname hook for current path
   const [isTransitioning, setIsTransitioning] = useState<boolean>(false);
 

@@ -1,6 +1,5 @@
-import type { Metadata } from "next"
-import "../globals.css"
 import { Geist, Geist_Mono } from "next/font/google"
+import "../globals.css"
 
 const geist = Geist({
   subsets: ["latin"],
@@ -12,16 +11,16 @@ const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
 })
 
-export const metadata: Metadata = {
-  title: 'Stationary',
-  description: 'PWA Stationary App',
-  manifest: '/manifest.json',
+export const metadata = {
+  title: 'Stationary Web',
+  description: 'Menyediakan penyimpanan data anda dengan lengkap dengan kualitas yang terjangkau',
+}
+
+// Tambahkan export viewport yang terpisah
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
   themeColor: '#000000',
-  viewport: 'width=device-width, initial-scale=1',
-  icons: {
-    icon: '/icon-192x192.png',
-    apple: '/icon-192x192.png',
-  },
 }
 
 export default function RootLayout({

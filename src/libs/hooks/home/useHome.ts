@@ -9,12 +9,6 @@ interface AccountData {
   // tambahkan property lain sesuai dengan response API
 }
 
-// Interface untuk parameter hook
-interface UseAccountParams {
-  isShouldFetch: boolean;
-  option?: SWRConfiguration;
-}
-
 // Type untuk return value dari hook
 type UseAccountReturn = SWRResponse<AccountData, Error>;
 
@@ -22,7 +16,7 @@ function useAccount(
   isShouldFetch: boolean, 
   option?: SWRConfiguration
 ): UseAccountReturn {
-  const url = `/api/position`;
+  const url = `/api/job`;
 
   const result = useSWR<AccountData, Error>(
     url, 

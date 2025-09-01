@@ -1,21 +1,8 @@
 "use client";
-import { useAccount } from "@/libs/hooks/home/useHome";
 import React, { useState } from "react";
-import { Cookies } from "react-cookie";
 
 export default function HomePage() {
   const [noBarang, setNoBarang] = useState<string>("01");
-  const cookies = new Cookies();
-
-  const _token = cookies.get("token");
-  const {
-    data: _accountInfo,
-    isValidating: _isAccountInfo,
-    error: _accountError,
-  } = useAccount(true, {
-    revalidateOnFocus: false,
-    revalidateIfStale: false,
-  });
 
   const speakText = (message: string) => {
     if ("speechSynthesis" in window) {
